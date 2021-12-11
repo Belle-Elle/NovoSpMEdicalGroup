@@ -7,5 +7,15 @@ namespace SpmedicalGroupWebApi.Repositories
 {
     public class UsuarioRepository
     {
+
+        public void Atualizar(Usuario usuarioAtualizado);
+        public Usuario BuscarPorId(int idUsuario);
+        public void Cadastrar(Usuario novoUsuario);
+        public string ConsultarPerfilDir(int idUsuario);
+        public void Deletar(int idUsuario);
+        public List<Usuario> ListarTodos();
+        public Usuario Login(string email, string senha);
+        public void SalvarPerfilDir(IFormFile foto, int idUsuario);
+
     }
 }

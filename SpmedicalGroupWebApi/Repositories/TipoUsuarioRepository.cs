@@ -7,5 +7,14 @@ namespace SpmedicalGroupWebApi.Repositories
 {
     public class TipoUsuarioRepository
     {
+
+        
+        public void Atualizar(TIpoUsuario tipoAtualizado);
+        public TIpoUsuario BuscarPorId(int idTipo);
+        public void Cadastrar(TIpoUsuario novoTipo);
+        public void Deletar(int idTipo);
+        public List<TIpoUsuario> ListarTodos();
+
+
     }
 }

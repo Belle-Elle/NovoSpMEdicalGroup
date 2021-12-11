@@ -7,5 +7,16 @@ namespace SpmedicalGroupWebApi.Interfaces
 {
     interface IPacienteRepository
     {
+
+        
+
+          void Cadastrar(Paciente novoPaciente);
+          List<Paciente> ListarTodos();
+          Paciente BuscarPorId(int idPaciente);
+          void Atualizar(Paciente pacienteAtualizado);
+          void Deletar(int idUsuario);
+
+        
+
     }
 }

@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
-using SpmedicalGroup_webApi_Proj_Senai.Domains;
-using SpmedicalGroup_webApi_Proj_Senai.Interfaces;
-using SpmedicalGroup_webApi_Proj_Senai.Repositorys;
+using SpmedicalGroupWebApi.Interfaces;
+using SpmedicalGroupWebApi.Repositorys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +17,8 @@ namespace SpmedicalGroupWebApi.Controllers
     public class ConsultaController
     {
 
-namespace SpmedicalGroup_webApi_Proj_Senai.Controllers
-    {
+      namespace SpmedicalGroup_webApi_Proj_Senai.Controllers
+      {
         public class ClinicasContorller
         {
 
@@ -149,7 +148,6 @@ namespace SpmedicalGroup_webApi_Proj_Senai.Controllers
                 }
             }
         }
-    }
+      }
 
-}
 }

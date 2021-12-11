@@ -7,5 +7,17 @@ namespace SpmedicalGroupWebApi.Interfaces
 {
     interface ITipoUsuarioRepository
     {
+
+        
+
+            void Cadastrar(TIpoUsuario novoTipo);
+            List<TIpoUsuario> ListarTodos();
+            TIpoUsuario BuscarPorId(int idTipo);
+            void Atualizar(TIpoUsuario tipoAtualizado);
+            void Deletar(int idTipo);
+
+
+          
+
     }
 }

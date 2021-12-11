@@ -7,5 +7,12 @@ namespace SpmedicalGroupWebApi.Repositories
 {
     public class MedicoRepository
     {
+
+        public void Atualizar(Medico medicoAtualizado);
+        public Medico BuscarPorId(int idMedico);
+        public void Cadastrar(Medico novoMedico);
+        public void Deletar(int idMedico);
+        public List<Medico> ListarTodos();
+
     }
 }
