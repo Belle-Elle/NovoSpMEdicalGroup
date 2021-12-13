@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
+using SpmedicalGroup_webApi_Proj_Senai.Interfaces;
 using SpmedicalGroupWebApi.Interfaces;
-using SpmedicalGroupWebApi.Repositorys;
+using SpmedicalGroupWebApi.Repositories;
+using SpmedicalGroupWebApi.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,7 @@ using System.Threading.Tasks;
 namespace SpmedicalGroupWebApi.Controllers
 
 {
-    public class ClinicasContorller
+    public class ClinicaContorller
     {
 
         [Route("api/[controller]")]

@@ -1,28 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using SpmedicalGroupWebApi.Interfaces;
-using SpmedicalGroupWebApi.Repositorys;
+using SpmedicalGroupWebApi.Repositories;
+using SpmedicalGroupWebApi.ViewModel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace SpmedicalGroupWebApi.Controllers
 {
-    public class LoginController
+    [Produces("application/json")]
+    [Route("api/[controller]")]
+    [ApiController]
+    public class LoginController : ControllerBase
     {
+        private IUsuarioRepository _usuarioRepository { get; set; }
 
-        [Produces("application/json")]
-        [Route("api/[controller]")]
-        [ApiController]
-        public class LoginController : ControllerBase
+        public LoginController()
         {
-            private IUsuarioRepository _usuarioRepository { get; set; }
-
-            public LoginController()
-            {
-                _usuarioRepository = new UsuarioRepository();
-            }
-
+            _usuarioRepository = new UsuarioRepository();
         }
 
         [HttpPost]
@@ -36,8 +32,28 @@ namespace SpmedicalGroupWebApi.Controllers
                 {
                     return NotFound("E-mail ou senha inválidos!");
                 }
+                var minhasClaims = new[]
+                {
+                    new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
+                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
+                    new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.NomeUsuario),
+                    new Claim(ClaimTypes.Role,usuarioBuscado.IdTipoUsuario.ToString()),
+                    new Claim("role", usuarioBuscado.IdtipoUsuario.ToString())
+                };
 
-               
+                var key = new SymmetricSecurityKey(System.Text.Enconding.UTF8.GetBytes("cjhsdcsjhsbdcshchchdj"));
+
+                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+                var meuToken = new JwtSecurityToken(
+                   issuer: "senai.spmedgroup.webAPI",
+                   audience: "senai.spmedgroup.webAPI",
+                   claims: minhasClaims,
+                   expires: DateTime.Now.AddMinutes(35),
+                   signingCredentials: creds
+                   );
+
+
                 return Ok(new
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(meuToken)

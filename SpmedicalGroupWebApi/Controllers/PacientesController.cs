@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SpmedicalGroupWebApi.Interfaces;
+using SpmedicalGroupWebApi.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +14,14 @@ namespace SpmedicalGroupWebApi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize(Roles = "1")]
-    public class PacienteController : ControllerBase
+    public class PacientesController : ControllerBase
     {
 
         private IPacienteRepository _pacienteRepository { get; set; }
 
         public PacientesController()
         {
-            _pacienteRepository = new PacienteRepository();
+            _pacienteRepository = new PacientesRepository();
         }
 
         [HttpGet]

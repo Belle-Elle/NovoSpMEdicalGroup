@@ -1,11 +1,12 @@
-﻿using System;
+﻿using SpmedicalGroupWebApi.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace SpmedicalGroupWebApi.Repositories
 {
-    public class UsuarioRepository
+    public class UsuarioRepository : IUsuarioRepository
     {
 
         public void Atualizar(Usuario usuarioAtualizado);

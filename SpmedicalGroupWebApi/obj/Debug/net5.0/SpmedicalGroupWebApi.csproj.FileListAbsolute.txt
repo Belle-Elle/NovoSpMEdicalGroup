@@ -1,0 +1,7 @@
+C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\SpmedicalGroupWebApi.csproj.AssemblyReference.cache
+C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\SpmedicalGroupWebApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\SpmedicalGroupWebApi.AssemblyInfoInputs.cache
+C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\SpmedicalGroupWebApi.AssemblyInfo.cs
+C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\SpmedicalGroupWebApi.csproj.CoreCompileInputs.cache
+C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\SpmedicalGroupWebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\SpmedicalGroupWebApi.MvcApplicationPartsAssemblyInfo.cache

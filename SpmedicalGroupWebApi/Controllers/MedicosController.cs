@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SpmedicalGroupWebApi.Interfaces;
-using SpmedicalGroupWebApi.Repositorys;
+using SpmedicalGroupWebApi.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
