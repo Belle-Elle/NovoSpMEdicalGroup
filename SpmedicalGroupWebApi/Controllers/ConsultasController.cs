@@ -1,17 +1,19 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SpmedicalGroupWebApi.Domains;
 using SpmedicalGroupWebApi.Interfaces;
 using SpmedicalGroupWebApi.Repositories;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace SpmedicalGroupWebApi.Controllers
 {
-    public class ConsultasController
-    {
+   
+    
 
         [Route("api/[controller]")]
         [ApiController]
@@ -26,11 +28,11 @@ namespace SpmedicalGroupWebApi.Controllers
             }
 
 
-        }
+        
 
-        [HttpGet]
-        public IActionResult ListarTodas()
-        {
+         [HttpGet]
+         public IActionResult ListarTodas()
+         {
             try
             {
                 return Ok(_consultaRepository.ListarTodas());
@@ -39,12 +41,12 @@ namespace SpmedicalGroupWebApi.Controllers
             {
                 return BadRequest(erro.Message);
             }
-        }
+         }
 
-        [Authorize(Roles = "3")]
-        [HttpGet("Paciente")]
-        public IActionResult ListarMinhasPaciente()
-        {
+         [Authorize(Roles = "3")]
+         [HttpGet("Paciente")]
+         public IActionResult ListarMinhasPaciente()
+         {
             try
             {
                 int idPaciente = Convert.ToInt32(HttpContext.User.Claims.First(u => u.Type == JwtRegisteredClaimNames.Jti).Value);
@@ -55,12 +57,12 @@ namespace SpmedicalGroupWebApi.Controllers
             {
                 return BadRequest(erro.Message);
             }
-        }
+         }
 
-        [Authorize(Roles = "2")]
-        [HttpGet("Medico")]
-        public IActionResult ListarMinhasMedico()
-        {
+         [Authorize(Roles = "2")]
+         [HttpGet("Medico")]
+         public IActionResult ListarMinhasMedico()
+         {
             try
             {
                 int idMedico = Convert.ToInt32(HttpContext.User.Claims.First(u => u.Type == JwtRegisteredClaimNames.Jti).Value);
@@ -71,11 +73,11 @@ namespace SpmedicalGroupWebApi.Controllers
             {
                 return BadRequest(erro.Message);
             }
-        }
+         }
 
-        [HttpPost]
-        public IActionResult Cadastrar(Consultas novaConsulta)
-        {
+         [HttpPost]
+         public IActionResult Cadastrar(Consultum novaConsulta)
+         {
             try
             {
                 if (novaConsulta.IdMedico == null)
@@ -93,12 +95,12 @@ namespace SpmedicalGroupWebApi.Controllers
             {
                 return BadRequest(erro.Message);
             }
-        }
+         }
 
-        [Authorize(Roles = "1")]
-        [HttpPatch("situacao/{idConsulta}")]
-        public IActionResult MudarSituacao(int idConsulta, Situacao situacao)
-        {
+         [Authorize(Roles = "1")]
+         [HttpPatch("situacao/{idConsulta}")]
+         public IActionResult MudarSituacao(int idConsulta, Situacao situacao)
+         {
             try
             {
                 if (_consultaRepository.BuscarPorId(idConsulta) == null)
@@ -125,13 +127,13 @@ namespace SpmedicalGroupWebApi.Controllers
             {
                 return BadRequest(erro.Message);
             }
-        }
+         }
 
 
-        [Authorize(Roles = "2")]
-        [HttpPatch("descricao/{idConsulta}")]
-        public IActionResult AddDescricao(int idConsulta, Consultum consulta, int id)
-        {
+         [Authorize(Roles = "2")]
+         [HttpPatch("descricao/{idConsulta}")]
+         public IActionResult AddDescricao(int idConsulta, Consultum consulta, int id)
+         {
             try
             {
 
@@ -160,12 +162,12 @@ namespace SpmedicalGroupWebApi.Controllers
             {
                 return BadRequest(erro.Message);
             }
-        }
+         }
 
 
-        [HttpPut]
-        public IActionResult Atualizar(Consultum consultaAtualizada)
-        {
+         [HttpPut]
+         public IActionResult Atualizar(Consultum consultaAtualizada)
+         {
             try
             {
                 _consultaRepository.Atualizar(consultaAtualizada);
@@ -176,11 +178,11 @@ namespace SpmedicalGroupWebApi.Controllers
             {
                 return BadRequest(erro.Message);
             }
-        }
+         }
 
-        [HttpDelete("{idConsulta}")]
-        public IActionResult Deletar(int idConsulta)
-        {
+         [HttpDelete("{idConsulta}")]
+         public IActionResult Deletar(int idConsulta)
+         {
             try
             {
                 if (_consultaRepository.BuscarPorId(idConsulta) == null)
@@ -207,6 +209,6 @@ namespace SpmedicalGroupWebApi.Controllers
             {
                 return BadRequest(erro.Message);
             }
+         }
         }
-    }
 }

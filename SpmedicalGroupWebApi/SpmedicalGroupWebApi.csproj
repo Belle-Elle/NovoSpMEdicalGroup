@@ -12,6 +12,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Domains\Clinica.cs" />
+    <Compile Include="Domains\Consultum.cs" />
+    <Compile Include="Domains\Especialidade.cs" />
+    <Compile Include="Domains\Medico.cs" />
+    <Compile Include="Domains\Paciente.cs" />
+    <Compile Include="Domains\Situacao.cs" />
+    <Compile Include="Domains\TipoUsuario.cs" />
+    <Compile Include="Domains\Usuario.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.10" />
@@ -23,5 +34,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.15.0" />
   </ItemGroup>
+
+	<PropertyGroup>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+	</PropertyGroup>
 
 </Project>

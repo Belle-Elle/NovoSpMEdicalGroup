@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using senai.spmedgroup.webApi.ViewModels;
+using SpmedicalGroupWebApi.Domains;
 using SpmedicalGroupWebApi.Interfaces;
 using SpmedicalGroupWebApi.Repositories;
-using SpmedicalGroupWebApi.ViewModel;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -38,16 +39,16 @@ namespace SpmedicalGroupWebApi.Controllers
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
                     new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.NomeUsuario),
                     new Claim(ClaimTypes.Role,usuarioBuscado.IdTipoUsuario.ToString()),
-                    new Claim("role", usuarioBuscado.IdtipoUsuario.ToString())
+                    new Claim("role", usuarioBuscado.IdTipoUsuario.ToString())
                 };
-
-                var key = new SymmetricSecurityKey(System.Text.Enconding.UTF8.GetBytes("cjhsdcsjhsbdcshchchdj"));
+                
+                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("cjhsdcsjhsbdcshchchdj"));
 
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
                 var meuToken = new JwtSecurityToken(
-                   issuer: "senai.spmedgroup.webAPI",
-                   audience: "senai.spmedgroup.webAPI",
+                   issuer: "SpmedicalGroupWebApi",
+                   audience: "SpmedicalGroupWebApi",
                    claims: minhasClaims,
                    expires: DateTime.Now.AddMinutes(35),
                    signingCredentials: creds

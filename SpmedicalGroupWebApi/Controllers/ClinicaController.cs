@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using SpmedicalGroup_webApi_Proj_Senai.Interfaces;
+using SpmedicalGroupWebApi.Domains;
 using SpmedicalGroupWebApi.Interfaces;
-using SpmedicalGroupWebApi.Repositories;
 using SpmedicalGroupWebApi.Repositories;
 using System;
 using System.Collections.Generic;
@@ -13,9 +12,6 @@ using System.Threading.Tasks;
 namespace SpmedicalGroupWebApi.Controllers
 
 {
-    public class ClinicaContorller
-    {
-
         [Route("api/[controller]")]
         [ApiController]
         [Authorize(Roles = "1")]
@@ -23,12 +19,9 @@ namespace SpmedicalGroupWebApi.Controllers
         {
             private IClinicaRepository _clinicaRepository { get; set; }
 
-            public ClinicasController()
-            {
-
-                _clinicaRepository = new ClinicaRepository();
-            }
-
+        public ClinicasController()
+        {
+            _clinicaRepository = new ClinicaRepository();
         }
 
         [HttpGet]

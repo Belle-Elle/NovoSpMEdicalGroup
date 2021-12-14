@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SpmedicalGroupWebApi</name>
+    </assembly>
+    <members>
+        <member name="T:senai.spmedgroup.webApi.ViewModels.LoginViewModel">
+            <summary>
+            Classe responsável pelo modelo de login
+            </summary>
+        </member>
+    </members>
+</doc>
