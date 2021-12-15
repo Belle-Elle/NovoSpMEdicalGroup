@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
+using SpmedicalGroupWebApi.Contexts;
 using SpmedicalGroupWebApi.Domains;
 using SpmedicalGroupWebApi.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,44 +12,75 @@ namespace SpmedicalGroupWebApi.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
+        readonly MedicalContext ctx = new();
         public void Atualizar(Usuario usuarioAtualizado)
         {
-            throw new NotImplementedException();
+            Usuario usuarioBuscado = ctx.Usuarios.Find(usuarioAtualizado.IdUsuario);
+
+            usuarioBuscado.Email = usuarioAtualizado.Email;
+            usuarioBuscado.Senha = usuarioAtualizado.Senha;
+            usuarioBuscado.NomeUsuario = usuarioAtualizado.NomeUsuario;
+
+            ctx.Usuarios.Update(usuarioBuscado);
+
+            ctx.SaveChanges();
         }
 
         public Usuario BuscarPorId(int idUsuario)
         {
-            throw new NotImplementedException();
+
+            return ctx.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
         }
 
         public void Cadastrar(Usuario novoUsuario)
         {
-            throw new NotImplementedException();
+            ctx.Usuarios.Add(novoUsuario);
+
+            ctx.SaveChanges();
         }
 
         public string ConsultarPerfilDir(int idUsuario)
         {
-            throw new NotImplementedException();
+            string nomeArquivo = idUsuario.ToString() + ".png";
+
+            string caminho = Path.Combine("perfil", nomeArquivo);
+
+            if (File.Exists(caminho))
+            {
+                byte[] byteArquivo = File.ReadAllBytes(caminho);
+
+                return Convert.ToBase64String(byteArquivo);
+            }
+
+            return null;
         }
 
         public void Deletar(int idUsuario)
         {
-            throw new NotImplementedException();
+           ctx.Usuarios.Remove(BuscarPorId(idUsuario));
+
+            ctx.SaveChanges();
         }
 
         public List<Usuario> ListarTodos()
         {
-            throw new NotImplementedException();
+            return ctx.Usuarios.ToList();
         }
 
         public Usuario Login(string email, string senha)
         {
-            throw new NotImplementedException();
+            return ctx.Usuarios.FirstOrDefault(u => u.Email == email && u.Senha == senha);
         }
 
         public void SalvarPerfilDir(IFormFile foto, int idUsuario)
         {
-            throw new NotImplementedException();
+            string nomeArquivo = idUsuario.ToString() + ".png";
+
+            using (var stream = new FileStream(Path.Combine("perfil", nomeArquivo), FileMode.Create))
+            {
+                foto.CopyTo(stream);
+            }
         }
+
     }
 }

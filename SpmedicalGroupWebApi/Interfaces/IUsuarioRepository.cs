@@ -9,10 +9,6 @@ namespace SpmedicalGroupWebApi.Interfaces
 {
     interface IUsuarioRepository
     {
-
-
-
-
         Usuario Login(string email, string senha);
         void Cadastrar(Usuario novoUsuario);
         List<Usuario> ListarTodos();
