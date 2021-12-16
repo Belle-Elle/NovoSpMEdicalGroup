@@ -17,7 +17,7 @@ namespace SpmedicalGroupWebApi.Controllers
 
         [Route("api/[controller]")]
         [ApiController]
-        [Authorize]
+        // [Authorize]
         public class ConsultasController : ControllerBase
         {
             private IConsultaRepository _consultaRepository { get; set; }
@@ -26,9 +26,6 @@ namespace SpmedicalGroupWebApi.Controllers
             {
                 _consultaRepository = new ConsultaRepository();
             }
-
-
-        
 
          [HttpGet]
          public IActionResult ListarTodas()
