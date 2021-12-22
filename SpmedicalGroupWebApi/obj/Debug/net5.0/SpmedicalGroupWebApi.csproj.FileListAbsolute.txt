@@ -58,7 +58,6 @@ C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\n
 C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\SpmedicalGroupWebApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\SpmedicalGroupWebApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\staticwebassets\SpmedicalGroupWebApi.StaticWebAssets.Manifest.cache
-C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\staticwebassets\SpmedicalGroupWebApi.StaticWebAssets.xml
 C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\scopedcss\bundle\SpmedicalGroupWebApi.styles.css
 C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\SpmedicalGroupWebApi.RazorTargetAssemblyInfo.cache
 C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\SpmedicalGroupWebApi.csproj.CopyComplete
@@ -67,3 +66,4 @@ C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\n
 C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\SpmedicalGroupWebApi.xml
 C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\SpmedicalGroupWebApi.pdb
 C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\obj\Debug\net5.0\SpmedicalGroupWebApi.genruntimeconfig.cache
+C:\Users\40263753824\Desktop\NovoSpMEdicalGroup\SpmedicalGroupWebApi\bin\Debug\net5.0\SpmedicalGroupWebApi.StaticWebAssets.xml
